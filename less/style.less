@@ -1,7 +1,7 @@
-@import 'variables';
 @import '../node_modules/jenkins-core-theme/less/functions';
 @import '../node_modules/jenkins-core-theme/less/images';
 @import '../node_modules/jenkins-core-theme/less/codemirror';
+@import 'variables';
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,700,500,300);
 
 * {
@@ -33,22 +33,13 @@ a, a:hover, a:visited, a:link {
 }
 
 .task-icon-link[href='/'] {
-  position: absolute;
-  top: 12px;
-  left: 20px;
-  background-color: @color-link;
-  height: 40px;
-  width: 170px;
-  z-index: 3000;
-
-  &:hover {
-    opacity: 1 !important;
-  }
+  display: none;
 }
 
 #header {
   .shadow1();
-  height: 64px;
+  height: 74px;
+  background-position: 10px 10px;
   background-color: @color-primary;
   text-transform: uppercase;
   right: 0;
@@ -71,6 +62,14 @@ a, a:hover, a:visited, a:link {
     background: @color-bg;
     padding-left: 10px;
   }
+}
+
+#jenkins-head-icon {
+  display: none;
+}
+
+#jenkins-name-icon {
+  display: none;
 }
 
 #breadcrumbBar {
@@ -140,6 +139,13 @@ th.pane {
 
 a#jenkins-home-link {
   opacity: 1 !important;
+}
+
+#jenkins-home-link {
+  background: url("logo.png");
+  width: 355px;
+  height: 50px;
+  background-repeat: no-repeat;
 }
 
 table.progress-bar.red td.progress-bar-done {
@@ -231,6 +237,10 @@ table.progress-bar {
 .jenkins_ver:after {
   margin-left: 15px;
   content: 'afonsof.com/jenkins-material-theme v. @@version'
+}
+
+.col-md-6 {
+  display: none;
 }
 
 pre {
