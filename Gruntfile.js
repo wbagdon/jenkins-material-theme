@@ -117,7 +117,6 @@ module.exports = function (grunt) {
                 files: [
                     {src: ['dist/material-light.css'], dest: 'dist/material-light.css'},
                     {src: ['dist/material-static.css'], dest: 'dist/material-static.css'},
-                    {src: ['images/logo.png'], dest: 'dist/logo.png'},
                     {src: ['plugin/pom.xml'], dest: 'plugin/pom.xml'}
                 ]
             }
