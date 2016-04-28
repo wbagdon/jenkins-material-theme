@@ -5,7 +5,6 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
 
-
         clean: {
             dist: {
                 src: ["dist/*"]
@@ -121,6 +120,7 @@ module.exports = function (grunt) {
                 ]
             }
         },
+
         postcss: {
             options: {
                 map: false,
@@ -133,11 +133,18 @@ module.exports = function (grunt) {
             dist: {
                 src: 'dist/material*.css'
             }
+        },
+
+        copy: {
+            dist: {
+                files: [
+                    { src: 'images/logo.png', dest: 'dist/logo.png' }
+                ]
+          }
         }
     });
 
-    // Default task(s).
-    grunt.registerTask('default', ['clean', 'imagemin', 'less', 'replace', 'cssmin', 'postcss']);
-
+    // Default task(s)
+    grunt.registerTask('default', ['clean', 'imagemin', 'less', 'replace', 'cssmin', 'postcss', 'copy']);
 
 };
