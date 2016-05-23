@@ -5,11 +5,13 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "centos"
+  config.vm.box = "centos/7"
   config.vm.network :forwarded_port, guest: 8080, host: 8880
   # Provisioning
-  provision_cmd = "wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo; " \
+  provision_cmd = "yum install wget -y; " \
+    "wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo; " \
+    "curl --silent --location https://rpm.nodesource.com/setup_4.x | bash -; " \
     "rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key; " \
-    "yum install jenkins java-1.6.0-openjdk -y; "
+    "yum install nodejs jenkins java-1.8.0-openjdk -y; "
   config.vm.provision :shell, :inline => provision_cmd
 end
